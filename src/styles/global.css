@@ -3,6 +3,18 @@
    License: none (public domain)
 */
 
+@font-face {
+  font-family: "D-DIN";
+  src: local("D-DIN"), url("./D-DIN.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "D-DIN";
+  font-weight: 700;
+  font-style: bold;
+  src: url("./D-DIN-Bold.otf") format("opentype");
+}
+
 html,
 body,
 div,

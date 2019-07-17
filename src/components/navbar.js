@@ -16,7 +16,7 @@ const Container = styled.div`
 `;
 
 const SocialImg = styled.img`
-  width: 30px;
+  width: 20px;
   padding: 0 5px;
   transition: opacity 0.5s ease-in-out;
 

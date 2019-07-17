@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link, graphql } from "gatsby";
 
+import Video from "src/images/video.mp4";
+
 import Navbar from "../components/navbar";
 
 const Grid = styled.div`
@@ -40,7 +42,7 @@ const Container = styled.div`
 
   #text {
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "D-DIN", sans-serif;
     position: absolute;
     transition: opacity 0.5s ease-in-out;
     opacity: 0;
@@ -65,6 +67,7 @@ const TextWrapper = styled.div`
 `;
 
 const TopWrapper = styled.div`
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,10 +81,29 @@ const TopWrapper = styled.div`
   animation: GradientMotion 5s ease infinite;
 
   h1 {
-    font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 64px;
+    color: white;
+  }
+`;
+
+const VideoPlayer = styled.video`
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+`;
+
+const Bar = styled.div`
+  width: 100%;
+  background-color: #231f20;
+  padding: 20px;
+  box-sizing: border-box;
+
+  h1 {
+    font-family: "D-DIN", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
     color: white;
   }
 `;
@@ -90,8 +112,13 @@ export default ({ data }) => (
   <>
     <Navbar />
     <TopWrapper>
-      <h1>angelica milash</h1>
+      <VideoPlayer muted autoPlay loop>
+        <source src={Video} type="video/mp4" />
+      </VideoPlayer>
     </TopWrapper>
+    <Bar>
+      <h1>angelicamilash</h1>
+    </Bar>
     <Grid number={data.allMarkdownRemark.edges}>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <Link key={node.id} to={node.fields.slug}>

@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.h1`
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "D-DIN", sans-serif;
   color: white;
   font-size: 22px;
   margin-top: 20px;
