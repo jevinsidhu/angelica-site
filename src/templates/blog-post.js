@@ -18,22 +18,37 @@ const Header = styled.h1`
   color: white;
   font-size: 22px;
   margin-top: 20px;
+  text-align: center;
 `;
 
 const Subheader = styled(Header)`
   font-size: 16px;
   margin-top: 10px;
+  text-align: center;
+`;
+
+const Frame = styled.iframe`
+  width: 50vw;
+  height: 30vw;
 `;
 
 export default ({ data }) => {
   const post = data.markdownRemark;
+  console.log(post);
   return (
     <>
       <Navbar />
       <Wrapper>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Frame
+          src={`https://www.youtube.com/embed/${post.frontmatter.videoURL}`}
+          frameborder="0"
+          allowfullscreen
+        ></Frame>
         <Header>{post.frontmatter.title}</Header>
         <Subheader>{post.frontmatter.subtitle}</Subheader>
+        {post.frontmatter.credits.map(credit => (
+          <Subheader>{credit}</Subheader>
+        ))}
       </Wrapper>
     </>
   );
@@ -45,7 +60,8 @@ export const query = graphql`
       html
       frontmatter {
         title
-        subtitle
+        videoURL
+        credits
       }
     }
   }

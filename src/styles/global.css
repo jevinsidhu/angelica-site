@@ -222,6 +222,9 @@ html {
  * Improve readability when focused and also mouse hovered in all browsers.
  */
 
+a {
+  text-decoration: none;
+}
 a:active,
 a:hover {
   outline: 0;

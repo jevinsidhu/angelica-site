@@ -1,70 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, graphql } from "gatsby";
 
 import Video from "src/images/video.mp4";
+import Logo from "src/images/logo.png";
 
 import Navbar from "../components/navbar";
-
-const Grid = styled.div`
-  display: grid;
-  ${props => `grid-template-rows: repeat(${props.number}, 1fr);`}
-  overflow: hidden;
-  cursor: pointer;
-
-  img {
-    width: 125%;
-  }
-`;
-
-const Overlay = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: black;
-  opacity: 0;
-`;
-
-const Container = styled.div`
-  position: relative;
-  transition: opacity 0.5s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  div:first-child {
-    transition: opacity 0.5s ease-in-out;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
-  #text {
-    color: white;
-    font-family: "D-DIN", sans-serif;
-    position: absolute;
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0;
-    text-align: center;
-    pointer-events: none;
-  }
-
-  &:hover #text {
-    opacity: 1;
-  }
-`;
-
-const TextWrapper = styled.div`
-  h1 {
-    font-size: 24px;
-  }
-
-  h3 {
-    font-size: 16px;
-    padding-top: 8px;
-  }
-`;
+import Grid from "../components/grid";
+import Contact from "../components/contact";
 
 const TopWrapper = styled.div`
   overflow: hidden;
@@ -95,9 +38,12 @@ const VideoPlayer = styled.video`
 `;
 
 const Bar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  background-color: #231f20;
-  padding: 20px;
+  background-color: #000;
+  padding: 10px 20px;
   box-sizing: border-box;
 
   h1 {
@@ -108,33 +54,58 @@ const Bar = styled.div`
   }
 `;
 
-export default ({ data }) => (
-  <>
-    <Navbar />
-    <TopWrapper>
-      <VideoPlayer muted autoPlay loop>
-        <source src={Video} type="video/mp4" />
-      </VideoPlayer>
-    </TopWrapper>
-    <Bar>
-      <h1>angelicamilash</h1>
-    </Bar>
-    <Grid number={data.allMarkdownRemark.edges}>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <Link key={node.id} to={node.fields.slug}>
-          <Container>
-            <Overlay />
-            <TextWrapper id="text">
-              <h1>{node.frontmatter.title}</h1>
-              <h3>{node.frontmatter.subtitle}</h3>
-            </TextWrapper>
-            <img src={node.frontmatter.image} alt="image1" />
-          </Container>
-        </Link>
-      ))}
-    </Grid>
-  </>
-);
+const NameLogo = styled.img`
+  width: 150px;
+`;
+
+const LinkText = styled.h3`
+  font-family: "D-DIN", sans-serif;
+  color: ${props => (props.highlight ? "white" : "grey")};
+  margin: 0 10px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+`;
+
+const LinkWrapper = styled.div`
+  display: flex;
+`;
+
+const Index = ({ data }) => {
+  const [isWork, setIsWork] = useState(true);
+
+  const changeWork = () => {
+    setIsWork(true);
+  };
+  const changeContact = () => {
+    setIsWork(false);
+  };
+
+  return (
+    <>
+      <Navbar />
+      <TopWrapper>
+        <VideoPlayer muted autoPlay loop>
+          <source src={Video} type="video/mp4" />
+        </VideoPlayer>
+      </TopWrapper>
+      <Bar>
+        <NameLogo src={Logo} alt="logo" />
+        <LinkWrapper>
+          <LinkText highlight={isWork} onClick={changeWork}>
+            WORK
+          </LinkText>
+          <LinkText highlight={!isWork} onClick={changeContact}>
+            CONTACT
+          </LinkText>
+        </LinkWrapper>
+      </Bar>
+      {isWork ? <Grid data={data} /> : <Contact />}
+    </>
+  );
+};
+
+export default Index;
 
 export const query = graphql`
   query {
@@ -145,7 +116,6 @@ export const query = graphql`
           id
           frontmatter {
             title
-            subtitle
             image
           }
           fields {
