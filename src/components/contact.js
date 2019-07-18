@@ -16,23 +16,33 @@ const Image = styled.img`
 `;
 
 const Text = styled.h3`
-  display: flex;
-  position: absolute;
   font-family: "D-DIN", sans-serif;
   color: white;
-  width: 500px;
   text-align: center;
   font-size: 20px;
+  margin-top: 10px;
+`;
+
+const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 30px;
 `;
 
 const Contact = () => {
   return (
     <Wrapper>
-      <Text>
-        I’m an independent music video director and filmmaker based in Toronto,
-        Ontario. Please email me at angelicamilash@gmail.com for project
-        inquires and other creative opportunities.
-      </Text>
+      <TextWrapper>
+        <Text>
+          I’m an independent music video director and filmmaker based in
+          Toronto, Ontario.
+        </Text>
+        <Text>
+          Please email me at angelicamilash@gmail.com for project inquires and
+          other creative opportunities.
+        </Text>
+      </TextWrapper>
       <Image src={Background} alt="background" />
     </Wrapper>
   );
