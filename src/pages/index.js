@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Video from "src/images/video.mp4";
 import Logo from "src/images/logo.png";
@@ -60,7 +60,7 @@ const NameLogo = styled.img`
 
 const LinkText = styled.h3`
   font-family: "D-DIN", sans-serif;
-  color: ${props => (props.highlight ? "white" : "grey")};
+  color: ${props => (props.highlight ? "grey" : "white")};
   margin: 0 10px;
   font-size: 14px;
   letter-spacing: 2px;
@@ -85,7 +85,7 @@ const Index = ({ data }) => {
     <>
       <Navbar />
       <TopWrapper>
-        <VideoPlayer muted autoPlay loop>
+        <VideoPlayer playsinline muted autoPlay loop>
           <source src={Video} type="video/mp4" />
         </VideoPlayer>
       </TopWrapper>
