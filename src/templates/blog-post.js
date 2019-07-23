@@ -50,10 +50,10 @@ export default ({ data }) => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Angelica Milash</title>
+        <title>angelicamilash</title>
         <meta
           name="description"
-          content="Angelica Milash is an independent director and filmmaker currently based in Toronto, Ontario."
+          content="angelicamilash is an independent director and filmmaker currently based in Toronto, Ontario."
         />
         <link rel="icon" type="image/png" href={Favicon} sizes="16x16" />
       </Helmet>
