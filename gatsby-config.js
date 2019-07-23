@@ -18,5 +18,6 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-root-import`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-react-helmet`,
   ],
 };

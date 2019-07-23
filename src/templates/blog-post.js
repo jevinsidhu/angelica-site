@@ -1,8 +1,10 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { graphql } from "gatsby";
 
-import Navbar from "../components/navbar";
+import Navbar from "src/components/navbar";
+import Favicon from "src/images/favicon.png";
 
 const Wrapper = styled.div`
   font-family: "D-DIN", sans-serif;
@@ -46,6 +48,11 @@ export default ({ data }) => {
   console.log(post);
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Angelica Milash</title>
+        <link rel="icon" type="image/png" href={Favicon} sizes="16x16" />
+      </Helmet>
       <Navbar isDetailedPage />
       <Wrapper>
         {post.frontmatter.videoURL ? (

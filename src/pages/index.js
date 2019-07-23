@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { graphql } from "gatsby";
 
 import Video from "src/images/video.mp4";
 import Logo from "src/images/logo.png";
+import Favicon from "src/images/favicon.png";
 
 import Navbar from "../components/navbar";
 import Grid from "../components/grid";
@@ -83,6 +85,11 @@ const Index = ({ data }) => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Angelica Milash</title>
+        <link rel="icon" type="image/png" href={Favicon} sizes="16x16" />
+      </Helmet>
       <Navbar />
       <TopWrapper>
         <VideoPlayer playsinline muted autoPlay loop>
