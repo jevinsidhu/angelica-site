@@ -88,6 +88,10 @@ const Index = ({ data }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Angelica Milash</title>
+        <meta
+          name="description"
+          content="Angelica Milash is an independent filmmaker currently based in Toronto, Ontario."
+        />
         <link rel="icon" type="image/png" href={Favicon} sizes="16x16" />
       </Helmet>
       <Navbar />
