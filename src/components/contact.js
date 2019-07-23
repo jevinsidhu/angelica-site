@@ -30,17 +30,21 @@ const TextWrapper = styled.div`
   padding: 30px;
 `;
 
+const Bold = styled.span`
+  font-weight: 700;
+`;
+
 const Contact = () => {
   return (
     <Wrapper>
       <TextWrapper>
         <Text>
-          I’m an independent music video director and filmmaker based in
-          Toronto, Ontario.
+          I’m an independent music video director and filmmaker currently based
+          in Toronto, Ontario.
         </Text>
         <Text>
-          Please email me at angelicamilash@gmail.com for project inquires and
-          other creative opportunities.
+          Please email me at <Bold>angelicamilash@gmail.com</Bold> for work
+          inquires and other creative opportunities.
         </Text>
       </TextWrapper>
       <Image src={Background} alt="background" />

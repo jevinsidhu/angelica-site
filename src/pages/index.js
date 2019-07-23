@@ -60,7 +60,7 @@ const NameLogo = styled.img`
 
 const LinkText = styled.h3`
   font-family: "D-DIN", sans-serif;
-  color: ${props => (props.highlight ? "grey" : "white")};
+  color: ${props => (props.highlight ? "white" : "grey")};
   margin: 0 10px;
   font-size: 14px;
   letter-spacing: 2px;

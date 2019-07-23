@@ -5,6 +5,7 @@ import { graphql } from "gatsby";
 import Navbar from "../components/navbar";
 
 const Wrapper = styled.div`
+  font-family: "D-DIN", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,15 +15,15 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.h1`
-  font-family: "D-DIN", sans-serif;
   color: white;
-  font-size: 22px;
+  font-size: 24px;
   margin-top: 20px;
   text-align: center;
 `;
 
 const Subheader = styled(Header)`
   font-size: 16px;
+  margin-bottom: 0;
   margin-top: 10px;
   text-align: center;
 `;
@@ -32,18 +33,30 @@ const Frame = styled.iframe`
   height: 30vw;
 `;
 
+const ComingSoonText = styled.h1`
+  color: #000;
+  padding: 100px 75px;
+  text-align: center;
+  background-color: #eee;
+  font-size: 48px;
+`;
+
 export default ({ data }) => {
   const post = data.markdownRemark;
   console.log(post);
   return (
     <>
-      <Navbar />
+      <Navbar isDetailedPage />
       <Wrapper>
-        <Frame
-          src={`https://www.youtube.com/embed/${post.frontmatter.videoURL}`}
-          frameborder="0"
-          allowfullscreen
-        ></Frame>
+        {post.frontmatter.videoURL ? (
+          <Frame
+            src={`https://www.youtube.com/embed/${post.frontmatter.videoURL}`}
+            frameborder="0"
+            allowfullscreen
+          ></Frame>
+        ) : (
+          <ComingSoonText>COMING SOON</ComingSoonText>
+        )}
         <Header>{post.frontmatter.title}</Header>
         <Subheader>{post.frontmatter.subtitle}</Subheader>
         {post.frontmatter.credits.map(credit => (
