@@ -39,7 +39,7 @@ const Contact = () => {
     <Wrapper>
       <TextWrapper>
         <Text>
-          I’m an independent filmmaker currently based in Toronto, Ontario.
+          I’m an independent director and filmmaker currently based in Toronto, Ontario.
         </Text>
         <Text>
           Please email me at <Bold>angelicamilash@gmail.com</Bold> for work
