@@ -120,7 +120,7 @@ export default Index;
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___order] }) {
       totalCount
       edges {
         node {

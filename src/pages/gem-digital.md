@@ -1,4 +1,5 @@
 ---
+order: 7
 title: "The 410: CBC Gem Digital Series"
 image: "https://i.imgur.com/dlAhWKg.jpg"
 videoURL: "G_NSZiSg--g"
