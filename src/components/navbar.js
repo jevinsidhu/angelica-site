@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 
 import Bird from "src/images/bird.png";
 import Camera from "src/images/camera.png";
+import HXOUSE from "src/images/hxouse.svg";
 
 const Container = styled.div`
   display: flex;
@@ -19,8 +20,8 @@ const Container = styled.div`
 `;
 
 const SocialImg = styled.img`
-  width: 20px;
-  padding: 0 5px;
+  width: 25px;
+  padding: 0 8px;
   transition: opacity 0.5s ease-in-out;
 
   &:hover {
@@ -55,6 +56,13 @@ const Navbar = ({ isDetailedPage }) => (
         target="_blank"
       >
         <SocialImg src={Camera} alt="camera social" />
+      </a>
+      <a
+        href="https://hxouse.com/tenants"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <SocialImg src={HXOUSE} alt="HXOUSE logo" />
       </a>
     </div>
   </Container>
