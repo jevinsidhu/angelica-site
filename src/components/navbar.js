@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 
 import Bird from "src/images/bird.png";
 import Camera from "src/images/camera.png";
-import HXOUSE from "src/images/hxouse.svg";
+import HXOUSE from "src/images/hxouse.png";
 
 const Container = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const Container = styled.div`
 `;
 
 const SocialImg = styled.img`
-  width: 25px;
+  width: ${props => (props.hxouse ? "20px" : "25px")};
   padding: 0 8px;
   transition: opacity 0.5s ease-in-out;
 
@@ -62,7 +62,7 @@ const Navbar = ({ isDetailedPage }) => (
         rel="noopener noreferrer"
         target="_blank"
       >
-        <SocialImg src={HXOUSE} alt="HXOUSE logo" />
+        <SocialImg hxouse src={HXOUSE} alt="HXOUSE logo" />
       </a>
     </div>
   </Container>
