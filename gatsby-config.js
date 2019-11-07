@@ -15,14 +15,14 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    {
-      resolve: "gatsby-source-google-sheets",
-      options: {
-        spreadsheetId: "1l5OnjROTA3Dn3fZJcPhW0HW2uWrtdK8jkHmwZJA6N-Q",
-        worksheetTitle: "info",
-        credentials: require("./client_secret.json"),
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-google-sheets",
+    //   options: {
+    //     spreadsheetId: "1l5OnjROTA3Dn3fZJcPhW0HW2uWrtdK8jkHmwZJA6N-Q",
+    //     worksheetTitle: "info",
+    //     credentials: require("./client_secret.json"),
+    //   },
+    // },
     `gatsby-transformer-remark`,
     `gatsby-plugin-root-import`,
     `gatsby-plugin-styled-components`,
